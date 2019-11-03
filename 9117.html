@@ -1,0 +1,81 @@
+<!--
+Implement the following functions:
+
+(a) Function Celsius returns the Celsius 
+equivalent of a Fahrenheit temperature, using the calcuation:
+
+C = 5.0 / 9.0 * (F-32);
+
+(b) Function fahrenheit returns the Fahrenheit 
+equvalent of a Celsius temperature, using the calculation 
+
+F = 9.0/5.0 * C +32;
+
+(c) Use these functions to write a script that 
+enables the user to enter eigher a Fahrenheit or a Celsius 
+temperature and displays the Celsius or Fahrenheit equivalent.
+ Your HTML5 document should contain two buttons -- one to
+ initiate the conversion from Fahrenheit to Celsius and 
+ one to initiate the conversion from Celsius to Fahrenheit.
+
+Please look page 318~319, in "Answers to Self-Review Exercises",
+ the solution of figure 9.6 in which the textbook gives you 
+ the codes to calculates the volume of a sphere. 
+ The homework 9.17 can be done in a similar structure.  
+ -->
+ 
+ <!DOCTYPE html> 
+
+<html>
+	<head>
+	<meta charset = "utf-8">
+	<title>Conversion from Celsius and Fahrenheit</title>
+	
+	<script type = "text/javascript">
+	function start()
+         {
+            var button = document.getElementById( "celsius" );
+			if (button)
+			{
+			
+			button.addEventListener( "click", celsius, false );
+			}
+			if (button)
+			{
+			var button = document.getElementById( "fahrenheit" );
+            button.addEventListener( "click",fahrenheit, false );
+			}
+         } // end function start
+	function celsius()  
+		{  
+		var c = document.getElementById( "celsiusField" ).value;
+		c = parseFloat(c);
+		document.getElementById( "fahrenheitField" ).value = 9.0/5.0 * c +32 ; 		
+		} // end function celsius
+	function fahrenheit()  
+		{  
+		var f =  document.getElementById( "fahrenheitField" ).value;
+		f = parseFloat(f);
+		document.getElementById( "celsiusField" ).value = 5.0 / 9.0 * (f-32) ; 
+		} // end function fahrenheit
+	 
+	 window.addEventListener( "load", start, false );
+		</script> 
+	</head>
+	<body>
+	
+		<p><label>Celsius:
+	
+			<input id = "celsiusField" type = "number" placeholder = Enter Number in Fahrenheit>
+		</label>
+			<label>Fahrenheit:
+			<input id = "fahrenheitField" type = "number" placeholder = Enter Number in Celsius>
+		</label>
+			<input id = "celsius" type = "button" value = "Celsius to Fahrenheit ">
+			<input id = "fahrenheit" type = "button" value = "Fahrenheit to Celsius">			
+		</p>
+	</body> 
+	</html>
+
+
+
